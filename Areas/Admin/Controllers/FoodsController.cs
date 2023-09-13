@@ -20,7 +20,7 @@ namespace Restaurant.Areas.Admin.Controllers
         // GET: Admin/Foods
         public ActionResult Index()
         {
-            return Redirect("/Admin/FoodCategories");
+            return Redirect("/Admin/FoodCategories/Index");
         }
 
         public ActionResult FoodsListByCategory(int id)

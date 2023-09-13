@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @item.Foods.SelectMany(f => f.MiniOrders).Distinct().Count()
+                @item.Foods.SelectMany(f => f.MiniOrders.Where(mo=>mo.quantity!=0).Select(mo=>mo.Receipt)).Distinct().Count()
             </td>
             <td>
                 @item.Foods.SelectMany(f => f.MiniOrders).Distinct().Sum(mo => mo.quantity)
