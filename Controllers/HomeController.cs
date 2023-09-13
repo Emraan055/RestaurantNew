@@ -94,6 +94,7 @@ namespace Restaurant.Controllers
 
             for (int i = 0; i < FoodIDs.Count; i++)
             {
+                if (Amounts[i] == 0) continue;
                 var food = db.Foods.Find(FoodIDs[i]);
                 var amount = Amounts[i];
                 var miniOrder = new MiniOrder()
