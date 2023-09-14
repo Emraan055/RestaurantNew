@@ -1,4 +1,5 @@
 ﻿using Models;
+using Restaurant.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,6 +11,11 @@ namespace Context
 {
     public class RestaurantContext:DbContext
     {
+        public RestaurantContext() : base("RestaurantContext")
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RestaurantContext, Configuration>());
+        }
+
         public DbSet<Food> Foods { get; set; }
         public DbSet<FoodCategory> FoodCategories { get; set; }
         public DbSet<MiniOrder> MiniOrders { get; set; }
